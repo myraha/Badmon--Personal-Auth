@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <title>Joey Badass Video Reel</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        </div>
+        <div class="col-sm-6">
+          <h3>Links</h3>
+          <ul class="messages">
+          <% for(var i=0; i<links.length; i++) {%>
+            <li class="message">
+              <span><%= links[i].email %> posted:</span>
+              <iframe width="560" height="315" src=<%= links[i].link %> frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </li>
+          <% } %>
+          </ul>
+
+          <h2>Add a link</h2>
+        <% if (user.local.email) { %>
+          <form action="/links" method="POST">
+            <input type="text" value="<%= user.local.email %>" name="email">
+            <input type="text" placeholder="link" name="link">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
